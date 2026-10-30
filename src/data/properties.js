@@ -1,0 +1,233 @@
+export const properties = [
+  {
+    id: 'the-ivory-residence',
+    name: 'The Ivory Residence',
+    location: 'Greater Kailash II, New Delhi',
+    city: 'South Delhi',
+    type: 'Villa',
+    transaction: 'buy',
+    price: 87500000,
+    beds: 5,
+    baths: 6,
+    area: 5200,
+    badge: 'Featured',
+    image:
+      'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1400&q=85',
+    gallery: [
+      'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1800&q=90',
+      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=85',
+      'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=85',
+      'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1200&q=85',
+    ],
+    description:
+      'A considered blend of contemporary lines and timeless materials, The Ivory Residence is a private sanctuary in one of South Delhi’s most coveted neighbourhoods. Sunlit rooms open onto landscaped gardens, while bespoke detailing brings quiet elegance to every corner.',
+    amenities: ['Private garden', 'Designer kitchen', 'Home automation', 'Secure parking', 'Staff quarters', 'CCTV security'],
+    highlights: ['Quiet tree-lined address', 'Recently renovated', 'East-facing garden'],
+  },
+  {
+    id: 'azure-house',
+    name: 'Azure House',
+    location: 'DLF Phase 1, Gurugram',
+    city: 'Gurgaon',
+    type: 'Independent House',
+    transaction: 'buy',
+    price: 64200000,
+    beds: 4,
+    baths: 5,
+    area: 3900,
+    badge: 'For Sale',
+    image:
+      'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1400&q=85',
+    gallery: [
+      'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1800&q=90',
+      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=85',
+      'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1200&q=85',
+      'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=85',
+    ],
+    description:
+      'Designed for those who value both privacy and proximity, Azure House pairs generous family spaces with graceful indoor-outdoor living. Thoughtful proportions, rich natural textures and a leafy outlook make this an inviting place to come home to.',
+    amenities: ['Private garden', 'Clubhouse access', 'Modular kitchen', 'Power backup', 'Parking', '24-hour security'],
+    highlights: ['Minutes from Golf Course Road', 'Corner plot', 'Move-in ready'],
+  },
+  {
+    id: 'solstice-penthouse',
+    name: 'Solstice Penthouse',
+    location: 'Golf Course Road, Gurugram',
+    city: 'Golf Course Road',
+    type: 'Penthouse',
+    transaction: 'buy',
+    price: 112000000,
+    beds: 4,
+    baths: 4,
+    area: 4600,
+    badge: 'Featured',
+    image:
+      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=85',
+    gallery: [
+      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1800&q=90',
+      'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=85',
+      'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1200&q=85',
+      'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=85',
+    ],
+    description:
+      'An elevated expression of city living, Solstice Penthouse brings the horizon into every room. Floor-to-ceiling glazing, a private terrace and a beautifully appointed interior create a rare home above the everyday.',
+    amenities: ['Private terrace', 'Concierge', 'Infinity pool', 'Fitness studio', 'Smart home', 'Valet parking'],
+    highlights: ['Panoramic skyline views', 'Private lift lobby', 'Premium tower'],
+  },
+  {
+    id: 'the-terrace-edit',
+    name: 'The Terrace Edit',
+    location: 'Sector 50, Noida',
+    city: 'Noida',
+    type: 'Apartment',
+    transaction: 'rent',
+    price: 185000,
+    beds: 3,
+    baths: 3,
+    area: 2150,
+    badge: 'For Rent',
+    image:
+      'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1400&q=85',
+    gallery: [
+      'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1800&q=90',
+      'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1200&q=85',
+      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=85',
+      'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=85',
+    ],
+    description:
+      'Set within a beautifully maintained community, this light-filled apartment opens to a generous terrace made for slow mornings and long evenings. A refined palette and effortless layout make it an exceptional rental.',
+    amenities: ['Expansive terrace', 'Clubhouse', 'Fitness centre', 'Lift', 'Power backup', 'Gated community'],
+    highlights: ['Available immediately', 'Park-facing', 'Near metro connectivity'],
+  },
+  {
+    id: 'house-of-light',
+    name: 'House of Light',
+    location: 'Vasant Vihar, New Delhi',
+    city: 'South Delhi',
+    type: 'Villa',
+    transaction: 'buy',
+    price: 148000000,
+    beds: 6,
+    baths: 7,
+    area: 6800,
+    badge: 'For Sale',
+    image:
+      'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1400&q=85',
+    gallery: [
+      'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1800&q=90',
+      'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=85',
+      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=85',
+      'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=85',
+    ],
+    description:
+      'A rare Vasant Vihar address with room to gather, unwind and grow. The home is centred around a tranquil courtyard, allowing daylight to travel through its generous living spaces and creating an atmosphere of understated calm.',
+    amenities: ['Private courtyard', 'Swimming pool', 'Staff quarters', 'Home theatre', 'Basement parking', 'Garden'],
+    highlights: ['Generous plot size', 'Landscaped courtyard', 'Established neighbourhood'],
+  },
+  {
+    id: 'veranda-residences',
+    name: 'Veranda Residences',
+    location: 'Dwarka Expressway, Gurugram',
+    city: 'Gurgaon',
+    type: 'Apartment',
+    transaction: 'rent',
+    price: 125000,
+    beds: 3,
+    baths: 3,
+    area: 1850,
+    badge: 'For Rent',
+    image:
+      'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=1400&q=85',
+    gallery: [
+      'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1800&q=90',
+      'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=85',
+      'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=85',
+      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=85',
+    ],
+    description:
+      'A calm, contemporary home in a connected neighbourhood. Veranda Residences offers generous proportions, warm finishes and access to a thoughtful collection of resident amenities.',
+    amenities: ['Balcony', 'Clubhouse', 'Swimming pool', 'Gymnasium', 'Power backup', 'Gated community'],
+    highlights: ['Easy airport access', 'Open green views', 'Well-connected location'],
+  },
+  {
+    id: 'aranya-court',
+    name: 'Aranya Court',
+    location: 'Sector 44, Noida',
+    city: 'Noida',
+    type: 'Independent House',
+    transaction: 'buy',
+    price: 52800000,
+    beds: 4,
+    baths: 4,
+    area: 3400,
+    badge: 'For Sale',
+    image:
+      'https://images.unsplash.com/photo-1600047509358-9dc75507daeb?auto=format&fit=crop&w=1400&q=85',
+    gallery: [
+      'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1800&q=90',
+      'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1200&q=85',
+      'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=85',
+      'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=85',
+    ],
+    description:
+      'Surrounded by mature trees, Aranya Court is a welcoming independent home with a warm, understated character. Its flexible layout offers room for quiet moments and easy entertaining alike.',
+    amenities: ['Private garden', 'Study', 'Modular kitchen', 'Parking', 'Power backup', 'Security'],
+    highlights: ['Tree-lined street', 'Flexible family layout', 'Close to business district'],
+  },
+  {
+    id: 'maison-gk',
+    name: 'Maison GK',
+    location: 'Greater Kailash I, New Delhi',
+    city: 'Greater Kailash',
+    type: 'Apartment',
+    transaction: 'rent',
+    price: 210000,
+    beds: 3,
+    baths: 3,
+    area: 2400,
+    badge: 'For Rent',
+    image:
+      'https://images.unsplash.com/photo-1600047509782-20d39509f26d?auto=format&fit=crop&w=1400&q=85',
+    gallery: [
+      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1800&q=90',
+      'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=85',
+      'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=85',
+      'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=85',
+    ],
+    description:
+      'A polished apartment in the heart of Greater Kailash, Maison GK offers a considered interior and an address surrounded by the best of South Delhi. Thoughtful details make everyday living feel effortless.',
+    amenities: ['Balcony', 'Lift', 'Modular kitchen', 'Dedicated parking', 'Power backup', 'Security'],
+    highlights: ['Walk to local cafés', 'Bright corner apartment', 'Available furnished'],
+  },
+]
+
+export const propertyTypes = [
+  {
+    name: 'Luxury Villas',
+    type: 'Villa',
+    image:
+      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=85',
+    count: '12 curated homes',
+  },
+  {
+    name: 'Modern Apartments',
+    type: 'Apartment',
+    image:
+      'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=85',
+    count: '28 curated homes',
+  },
+  {
+    name: 'Premium Penthouses',
+    type: 'Penthouse',
+    image:
+      'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=85',
+    count: '08 curated homes',
+  },
+  {
+    name: 'Independent Houses',
+    type: 'Independent House',
+    image:
+      'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1200&q=85',
+    count: '16 curated homes',
+  },
+]
