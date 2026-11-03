@@ -1,62 +1,34 @@
-import { ArrowRight, BriefcaseBusiness, Camera, MapPin, Phone } from 'lucide-react'
-import { useState } from 'react'
+import { ArrowUpRight, Camera, BriefcaseBusiness, AtSign, ArrowRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
-const currentYear = new Date().getFullYear()
-
 export default function Footer() {
-  const [subscribed, setSubscribed] = useState(false)
-
-  function subscribe(event) {
-    event.preventDefault()
-    event.currentTarget.reset()
-    setSubscribed(true)
-  }
-
   return (
-    <footer className="site-footer">
+    <footer className="footer">
+      <div className="footer-cta">
+        <div>
+          <span className="eyebrow eyebrow-light">A more considered move</span>
+          <h2>Let’s find your<br /><em>somewhere.</em></h2>
+        </div>
+        <Link to="/contact" className="button button-gold">Start a conversation <ArrowUpRight size={16} /></Link>
+      </div>
       <div className="footer-main">
-        <div className="footer-brand-column">
-          <Link className="brand brand--footer" to="/">
+        <div className="footer-brand-col">
+          <Link className="brand brand-light" to="/">
             <span className="brand-mark">A</span>
-            <span className="brand-wordmark">AUREL <b>ESTATES</b></span>
+            <span className="brand-copy">aurel<span>estates</span></span>
           </Link>
-          <p>Discover spaces. Experience luxury.<br />A more considered way to find home.</p>
-          <div className="footer-socials">
-            <a href="https://www.instagram.com/" aria-label="Instagram"><Camera size={17} /></a>
-            <a href="https://www.linkedin.com/" aria-label="LinkedIn"><BriefcaseBusiness size={17} /></a>
+          <p>Thoughtful guidance.<br />Exceptional places.</p>
+          <div className="social-links">
+            <a href="https://www.instagram.com/" aria-label="Instagram"><Camera size={16} /></a>
+            <a href="https://www.linkedin.com/" aria-label="LinkedIn"><BriefcaseBusiness size={16} /></a>
+            <a href="https://www.facebook.com/" aria-label="Facebook"><AtSign size={16} /></a>
           </div>
         </div>
-        <div className="footer-links">
-          <h3>Explore</h3>
-          <Link to="/properties">All properties</Link>
-          <Link to="/properties?transaction=buy">Homes to buy</Link>
-          <Link to="/properties?transaction=rent">Homes to rent</Link>
-          <Link to="/about">Our story</Link>
-        </div>
-        <div className="footer-links">
-          <h3>Get in touch</h3>
-          <a href="tel:+911140012345"><Phone size={15} /> +91 11 4001 2345</a>
-          <a href="mailto:hello@aurelestates.in">hello@aurelestates.in</a>
-          <span><MapPin size={15} /> Defence Colony, New Delhi</span>
-          <Link to="/list-property">List your property</Link>
-        </div>
-        <div className="footer-newsletter">
-          <h3>A little inspiration, occasionally.</h3>
-          <p>Thoughtful homes and notes on living well, delivered to your inbox.</p>
-          <form onSubmit={subscribe}>
-            <label className="sr-only" htmlFor="newsletter-email">Email address</label>
-            <input id="newsletter-email" type="email" placeholder="Your email address" required />
-            <button type="submit" aria-label="Subscribe"><ArrowRight size={18} /></button>
-          </form>
-          {subscribed && <p className="newsletter-success" role="status">Thanks — this demo doesn’t send subscriptions.</p>}
-        </div>
+        <div className="footer-column"><span className="footer-label">Explore</span><Link to="/properties">All properties</Link><Link to="/properties?status=For%20Sale">For sale</Link><Link to="/properties?status=For%20Rent">For rent</Link><Link to="/agents">Our people</Link></div>
+        <div className="footer-column"><span className="footer-label">Aurel</span><Link to="/about">Our story</Link><Link to="/contact">Get in touch</Link><Link to="/wishlist">Saved homes</Link><Link to="/agents">Meet the team</Link></div>
+        <div className="footer-column footer-contact"><span className="footer-label">Find us</span><p>First Floor, The Crescent<br />Lado Sarai, New Delhi 110030</p><a href="tel:+911141234567">+91 11 4123 4567</a><a href="mailto:hello@aurelestates.in">hello@aurelestates.in</a><Link to="/contact" className="footer-directions">Get directions <ArrowRight size={14} /></Link></div>
       </div>
-      <div className="footer-bottom">
-        <span>© {currentYear} Aurel Estates. All rights reserved.</span>
-        <span>Illustrative property information for demonstration purposes.</span>
-        <Link to="/contact">Privacy & contact</Link>
-      </div>
+      <div className="footer-bottom"><span>© {new Date().getFullYear()} Aurel Estates. All rights reserved.</span><span>Made for finding your place in the world.</span><Link to="/contact">Contact Aurel</Link></div>
     </footer>
   )
 }

@@ -1,85 +1,17 @@
-import { ArrowUpRight, Eye, Heart, Sparkles } from 'lucide-react'
+import { ArrowUpRight, Compass, Heart, Lightbulb, ShieldCheck } from 'lucide-react'
 import { Link } from 'react-router-dom'
-
-const expertise = [
-  { number: '01', title: 'A deep sense of place', text: 'Our neighbourhood knowledge goes beyond a map. We understand the rhythm, character and little details that make each pocket feel like home.' },
-  { number: '02', title: 'Advice that puts you first', text: 'We listen before we recommend. Every conversation begins with what matters to you, and every next step reflects it.' },
-  { number: '03', title: 'A more thoughtful journey', text: 'From the first shortlist to the final details, we bring care, clarity and calm to a process that should feel exciting.' },
-]
+import { motion } from 'framer-motion'
+import { agents } from '../data/agents.js'
+import CountUp from '../components/CountUp.jsx'
 
 export default function About() {
-  return (
-    <>
-      <section className="about-hero">
-        <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=2400&q=90" alt="A peaceful, light-filled home" />
-        <div className="about-hero-shade" />
-        <div className="page-container about-hero-copy">
-          <p className="eyebrow eyebrow--light">The story of Aurel</p>
-          <h1>Home is a feeling.<br /><em>We help you find it.</em></h1>
-          <p>We believe the right place can change everything. So we made finding it feel different.</p>
-        </div>
-      </section>
-      <section className="section about-story">
-        <div className="page-container story-layout">
-          <div className="story-aside"><p className="eyebrow">A better way to move</p><span>Since<br /><b>2012</b></span></div>
-          <div className="story-main">
-            <h2>We look beyond the listing to see the <em>life taking shape.</em></h2>
-            <p className="body-copy">Aurel Estates began with a simple belief: finding a home deserves more than a transaction. It deserves attention, empathy and a deep appreciation for the places where life unfolds.</p>
-            <p className="body-copy">We bring together a carefully curated collection of exceptional homes and the kind of local insight that helps you imagine living in them. Every property we represent has a reason to be here. Every client deserves a reasoned, personal approach.</p>
-            <p className="body-copy">Today, we continue to help people find their place across Delhi NCR—with an eye for the distinctive and a commitment to making every move feel like the right one.</p>
-          </div>
-        </div>
-      </section>
-      <section className="mission-section">
-        <div className="page-container mission-grid">
-          <article>
-            <span className="mission-icon"><Heart size={22} strokeWidth={1.4} /></span>
-            <p className="eyebrow">Our mission</p>
-            <h2>Make the search for home feel <em>human again.</em></h2>
-            <p>We pair meaningful relationships with exceptional homes, offering clear advice and genuine care at every turn.</p>
-          </article>
-          <article>
-            <span className="mission-icon"><Eye size={22} strokeWidth={1.4} /></span>
-            <p className="eyebrow">Our vision</p>
-            <h2>A world where every move feels like a <em>step forward.</em></h2>
-            <p>We imagine a property experience shaped around possibility, guided by trust and grounded in a true sense of place.</p>
-          </article>
-        </div>
-      </section>
-      <section className="section expertise-section">
-        <div className="page-container">
-          <div className="section-heading">
-            <p className="eyebrow">The way we work</p>
-            <h2>Good places. <em>Good people.</em><br />A better way to find home.</h2>
-          </div>
-          <div className="expertise-list">
-            {expertise.map((item) => (
-              <article key={item.number}>
-                <span className="expertise-number">{item.number}</span>
-                <h3>{item.title}</h3>
-                <p>{item.text}</p>
-                <Sparkles size={20} strokeWidth={1.2} />
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-      <section className="about-stats">
-        <div className="page-container stats-row">
-          <div><strong>12<span>+</span></strong><span>years of local insight</span></div>
-          <div><strong>640<span>+</span></strong><span>people finding their place</span></div>
-          <div><strong>96<span>%</span></strong><span>referrals from happy clients</span></div>
-          <div><strong>18</strong><span>neighbourhoods, deeply known</span></div>
-        </div>
-        <p className="stats-demo-note">Illustrative demonstration metrics.</p>
-      </section>
-      <section className="about-cta">
-        <div className="page-container about-cta-content">
-          <p className="eyebrow eyebrow--light">Let's find your place</p>
-          <h2>Every good move<br />starts with a <em>conversation.</em></h2>
-          <Link className="button button--gold" to="/contact">Talk to our team <ArrowUpRight size={16} /></Link>
-        </div>
-      </section>
-    </>
-  )
+  return <>
+    <section className="story-hero page-container"><div className="story-hero-copy"><span className="eyebrow">Aurel Estates · Since 2013</span><h1>A better way<br />to find <em>your place.</em></h1><p>We believe a home is more than an address. It’s how you live, the people you gather, and the everyday moments that become a life.</p></div><div className="story-hero-image"><img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1400&q=90" alt="Beautifully considered living room opening onto a garden" /><span>Spaces made for living well.</span></div></section>
+    <section className="story-intro section-pad page-container"><span className="eyebrow">Why we’re here</span><div><h2>Property can feel like a transaction.<br /><em>We think it should feel like a beginning.</em></h2><p>Founded in New Delhi, Aurel grew from a simple belief: the best property advice is personal. It comes from listening properly, knowing a place intimately, and caring about what happens after the keys change hands.</p><p>We work with a small, considered collection of homes and a close-knit team of advisors. That lets us give every client the attention their next chapter deserves.</p><Link to="/contact" className="text-link">Come say hello <ArrowUpRight size={16} /></Link></div></section>
+    <section className="mission-section"><div className="page-container mission-grid"><article><span className="mission-icon"><Compass size={22} /></span><span className="eyebrow eyebrow-light">Our mission</span><h2>Make every move<br /><em>feel more human.</em></h2><p>To bring clarity, care, and a little more meaning to one of life’s biggest decisions.</p></article><article><span className="mission-icon"><Lightbulb size={22} /></span><span className="eyebrow eyebrow-light">Our vision</span><h2>A world where every<br /><em>home feels like yours.</em></h2><p>Where people feel understood, places are thoughtfully chosen, and moving forward feels like coming home.</p></article></div></section>
+    <section className="section-pad page-container"><div className="section-heading"><div><span className="eyebrow">What we believe</span><h2>Thoughtfulness is in the details.</h2><p>It’s not one grand gesture. It’s the small things, done with care, every time.</p></div></div><div className="belief-grid"><article><Heart size={22} /><h3>Listen before we look.</h3><p>Your life, your priorities, your next chapter. It all starts with you.</p></article><article><ShieldCheck size={22} /><h3>Be honest, always.</h3><p>Good counsel means telling you what you need to hear, not just what you want.</p></article><article><Compass size={22} /><h3>Know a place deeply.</h3><p>Street by street. A neighbourhood is more than a pin on a map.</p></article></div></section>
+    <section className="about-numbers"><div className="page-container about-numbers-inner"><div><span className="eyebrow eyebrow-light">A decade and counting</span><h2>Small team.<br /><em>Thoughtful impact.</em></h2></div><div><strong><CountUp value={12} suffix="+" /></strong><span>years of local knowledge</span></div><div><strong><CountUp value={450} suffix=" Cr" /></strong><span>in property transactions</span></div><div><strong><CountUp value={96} suffix="%" /></strong><span>clients by recommendation</span></div></div></section>
+    <section className="section-pad page-container"><div className="section-heading"><div><span className="eyebrow">Good people make good moves</span><h2>Meet your people.</h2><p>Experienced, approachable, and always on your side of the table.</p></div><Link to="/agents" className="text-link">Meet the whole team <ArrowUpRight size={16} /></Link></div><div className="about-team-grid">{agents.map((agent) => <motion.article key={agent.name} className="about-team-card" whileHover={{ y: -5 }}><img src={agent.image} alt={agent.name} loading="lazy" /><span className="eyebrow">{agent.role}</span><h3>{agent.name}</h3><span>{agent.experience} experience</span></motion.article>)}</div></section>
+    <section className="about-cta"><div className="page-container"><span className="eyebrow eyebrow-light">Your next chapter starts here</span><h2>Shall we find<br /><em>it together?</em></h2><Link to="/contact" className="button button-gold">Let’s talk <ArrowUpRight size={16} /></Link></div></section>
+  </>
 }

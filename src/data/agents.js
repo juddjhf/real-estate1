@@ -1,0 +1,32 @@
+export const agents = [
+  {
+    name: 'Aarav Mehta',
+    role: 'Senior Property Advisor',
+    experience: '12 years',
+    transactions: '₹180 Cr+',
+    phone: '+91 98765 43210',
+    email: 'aarav@aurelestates.in',
+    area: 'South Delhi & Gurugram',
+    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=85',
+  },
+  {
+    name: 'Maya Kapoor',
+    role: 'Luxury Homes Specialist',
+    experience: '9 years',
+    transactions: '₹125 Cr+',
+    phone: '+91 98765 43211',
+    email: 'maya@aurelestates.in',
+    area: 'New Delhi & Golf Course Road',
+    image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=900&q=85',
+  },
+  {
+    name: 'Rhea Khanna',
+    role: 'Residential Advisor',
+    experience: '8 years',
+    transactions: '₹96 Cr+',
+    phone: '+91 98765 43212',
+    email: 'rhea@aurelestates.in',
+    area: 'Central Delhi & Gurugram',
+    image: 'https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=900&q=85',
+  },
+]

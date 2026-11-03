@@ -1,79 +1,54 @@
 import { useEffect, useState } from 'react'
-import { ArrowUpRight, Menu, Phone, X } from 'lucide-react'
-import { Link, NavLink, useLocation } from 'react-router-dom'
+import { Heart, Menu, X, ArrowUpRight, ChevronDown } from 'lucide-react'
+import { Link, NavLink } from 'react-router-dom'
+import { useWishlist } from '../context/WishlistContext.jsx'
 
 const links = [
-  { label: 'Home', to: '/' },
-  { label: 'Properties', to: '/properties' },
-  { label: 'Buy', to: '/properties?transaction=buy' },
-  { label: 'Rent', to: '/properties?transaction=rent' },
-  { label: 'About', to: '/about' },
-  { label: 'Contact', to: '/contact' },
+  { to: '/properties', label: 'Properties', dropdown: true },
+  { to: '/about', label: 'Our story' },
+  { to: '/agents', label: 'People' },
 ]
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
-  const location = useLocation()
-  const onHome = location.pathname === '/'
-  const activeTransaction = new URLSearchParams(location.search).get('transaction')
+  const { wishlist } = useWishlist()
 
   useEffect(() => {
-    const updateScroll = () => setScrolled(window.scrollY > 24)
-    updateScroll()
-    window.addEventListener('scroll', updateScroll, { passive: true })
-    return () => window.removeEventListener('scroll', updateScroll)
+    const closeOnEscape = (event) => {
+      if (event.key === 'Escape') setMenuOpen(false)
+    }
+    window.addEventListener('keydown', closeOnEscape)
+    return () => window.removeEventListener('keydown', closeOnEscape)
   }, [])
 
   return (
-    <header className={`navbar ${onHome && !scrolled ? 'navbar--over-hero' : 'navbar--solid'}`}>
-      <div className="nav-inner">
-        <Link className="brand" to="/" aria-label="Aurel Estates home">
+    <header className="site-header">
+      <div className="nav-wrap">
+        <Link className="brand" to="/" aria-label="Aurel Estates home" onClick={() => setMenuOpen(false)}>
           <span className="brand-mark">A</span>
-          <span className="brand-wordmark">AUREL <b>ESTATES</b></span>
+          <span className="brand-copy">aurel<span>estates</span></span>
         </Link>
-        <nav className={`nav-links ${menuOpen ? 'nav-links--open' : ''}`} aria-label="Main navigation">
-          {links.map(({ label, to }) => (
-            <NavLink
-              key={label}
-              to={to}
-              end={to === '/'}
-              className={({ isActive }) => {
-                const transactionLink = label === 'Buy' || label === 'Rent'
-                const transactionIsActive =
-                  location.pathname === '/properties' && activeTransaction === label.toLowerCase()
-                const active = transactionLink ? transactionIsActive : isActive
-                return `nav-link ${active ? 'nav-link--active' : ''}`
-              }}
-            >
-              {label}
+
+        <nav id="primary-navigation" className={`nav-links ${menuOpen ? 'nav-open' : ''}`} aria-label="Main navigation">
+          {links.map(({ to, label, dropdown }) => (
+            <NavLink key={to} to={to} onClick={() => setMenuOpen(false)} className={({ isActive }) => `nav-link ${isActive ? 'nav-active' : ''}`}>
+              {label}{dropdown && <ChevronDown size={13} strokeWidth={1.7} />}
             </NavLink>
           ))}
-          <a className="mobile-nav-cta" href="tel:+911140012345">
-            <Phone size={15} /> +91 11 4001 2345
-          </a>
-          <Link className="mobile-nav-cta" to="/list-property">
-            List your property <ArrowUpRight size={15} />
-          </Link>
+          <NavLink to="/contact" onClick={() => setMenuOpen(false)} className={({ isActive }) => `nav-link nav-mobile-contact ${isActive ? 'nav-active' : ''}`}>Contact</NavLink>
         </nav>
+
         <div className="nav-actions">
-          <a className="nav-call" href="tel:+911140012345" aria-label="Call Aurel Estates">
-            <Phone size={15} />
-            <span>+91 11 4001 2345</span>
-          </a>
-          <Link className="button button--gold nav-list" to="/list-property">
-            List your property <ArrowUpRight size={15} />
+          <Link className="wishlist-link" to="/wishlist" aria-label={`Saved homes, ${wishlist.length} properties`} onClick={() => setMenuOpen(false)}>
+            <Heart size={17} strokeWidth={1.7} />
+            <span>Saved</span>
+            {wishlist.length > 0 && <span className="wishlist-count">{wishlist.length}</span>}
           </Link>
+          <Link className="nav-contact" to="/contact">Let’s talk <ArrowUpRight size={14} /></Link>
+          <button className="mobile-menu" onClick={() => setMenuOpen(!menuOpen)} aria-label={menuOpen ? 'Close menu' : 'Open menu'} aria-expanded={menuOpen} aria-controls="primary-navigation">
+            {menuOpen ? <X size={22} /> : <Menu size={22} />}
+          </button>
         </div>
-        <button
-          className="menu-toggle"
-          type="button"
-          aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
-          aria-expanded={menuOpen}
-          onClick={() => setMenuOpen((open) => !open)}
-        >
-          {menuOpen ? <X size={23} /> : <Menu size={23} />}
-        </button>
       </div>
     </header>
   )

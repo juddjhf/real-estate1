@@ -1,58 +1,41 @@
-import { ArrowUpRight, BedDouble, Heart, Maximize2, ShowerHead } from 'lucide-react'
+import { ArrowUpRight, BedDouble, Bath, MoveUpRight, Heart, BadgeCheck } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { motion } from 'framer-motion'
+import { useWishlist } from '../context/WishlistContext.jsx'
 
-const formatPrice = (price, transaction) =>
-  transaction === 'rent'
-    ? `₹${price.toLocaleString('en-IN')} / month`
-    : `₹${(price / 10000000).toFixed(price >= 100000000 ? 1 : 2).replace(/\.?0+$/, '')} Cr`
+export default function PropertyCard({ property, index = 0 }) {
+  const { isSaved, toggleWishlist } = useWishlist()
+  const saved = isSaved(property.id)
 
-export default function PropertyCard({ property, favorite, onToggleFavorite, compact = false }) {
   return (
-    <article className={`property-card ${compact ? 'property-card--compact' : ''}`}>
+    <motion.article className="property-card" initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-35px' }} transition={{ duration: 0.48, delay: (index % 3) * 0.08 }}>
       <div className="property-image-wrap">
-        <Link to={`/properties/${property.id}`} className="property-image-link" aria-label={`View ${property.name}`}>
-          <img
-            className="property-image"
-            src={property.image}
-            alt={property.name}
-            loading="lazy"
-            onError={(event) => {
-              event.currentTarget.onerror = null
-              event.currentTarget.src = 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1400&q=85'
-            }}
-          />
+        <Link to={`/properties/${property.id}`} className="property-image-link" aria-label={`View ${property.title}`}>
+          <img className="property-image" src={property.images[0]} alt={property.title} loading="lazy" />
         </Link>
-        <span className={`property-badge ${property.badge === 'Featured' ? 'property-badge--featured' : ''}`}>
-          {property.badge}
-        </span>
-        <button
-          type="button"
-          className={`favorite-button ${favorite ? 'favorite-button--active' : ''}`}
-          aria-label={favorite ? `Remove ${property.name} from saved properties` : `Save ${property.name}`}
-          aria-pressed={favorite}
-          onClick={() => onToggleFavorite(property.id)}
-        >
-          <Heart size={17} fill={favorite ? 'currentColor' : 'none'} />
+        <div className="property-badges">
+          {property.featured && <span className="badge badge-featured">Curated</span>}
+          <span className={`badge ${property.status === 'For Rent' ? 'badge-rent' : 'badge-sale'}`}>{property.status}</span>
+        </div>
+        <button className={`save-property ${saved ? 'is-saved' : ''}`} onClick={() => toggleWishlist(property.id)} aria-label={saved ? 'Remove from saved homes' : 'Save property'} aria-pressed={saved}>
+          <Heart size={18} fill={saved ? 'currentColor' : 'none'} />
         </button>
       </div>
       <div className="property-card-content">
-        <div className="property-card-heading">
-          <div>
-            <span className="eyebrow property-location">{property.location}</span>
-            <h3><Link to={`/properties/${property.id}`}>{property.name}</Link></h3>
+        <div className="property-card-topline"><span>{property.type}</span>{property.verified && <span className="verified"><BadgeCheck size={14} /> Verified</span>}</div>
+        <div className="property-title-row">
+          <div><h3><Link to={`/properties/${property.id}`}>{property.title}</Link></h3><p className="property-location">{property.location}</p></div>
+          <Link to={`/properties/${property.id}`} className="card-arrow" aria-label={`View ${property.title}`}><ArrowUpRight size={17} /></Link>
+        </div>
+        <div className="property-card-bottom">
+          <div className="property-specs">
+            {property.beds > 0 && <span><BedDouble size={15} />{property.beds} bed</span>}
+            <span><Bath size={15} />{property.baths} bath</span>
+            <span><MoveUpRight size={14} />{property.area.toLocaleString('en-IN')} sq ft</span>
           </div>
-          <span className="property-type">{property.type}</span>
+          <strong className="property-price">{property.priceLabel}</strong>
         </div>
-        <p className="property-price">{formatPrice(property.price, property.transaction)}</p>
-        <div className="property-meta">
-          <span><BedDouble size={15} /> {property.beds} beds</span>
-          <span><ShowerHead size={15} /> {property.baths} baths</span>
-          <span><Maximize2 size={14} /> {property.area.toLocaleString('en-IN')} sq. ft.</span>
-        </div>
-        <Link className="property-details-link" to={`/properties/${property.id}`}>
-          View property <ArrowUpRight size={16} />
-        </Link>
       </div>
-    </article>
+    </motion.article>
   )
 }
